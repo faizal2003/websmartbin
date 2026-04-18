@@ -23,9 +23,10 @@ service cloud.firestore {
 *Note: In production, you should restrict access to authorized users/devices.*
 
 ## 2. Web Application Setup
-1.  Open `src/firebase.ts`.
-2.  Replace the `firebaseConfig` object with your actual Firebase project credentials from the Firebase Console (Project Settings > General > Your apps).
-3.  Run the application:
+1.  Open the `.env` file in the project root.
+2.  Replace the placeholder values with your actual Firebase project credentials from the Firebase Console (Project Settings > General > Your apps).
+3.  Vite will automatically load these variables during development.
+4.  Run the application:
     ```bash
     npm install
     npm run dev
