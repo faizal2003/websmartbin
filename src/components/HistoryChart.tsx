@@ -11,19 +11,20 @@ import {
 import { motion, AnimatePresence } from 'framer-motion';
 
 interface HistoryData {
-  day: string;
+  time: string;
   organic: number;
   inorganic: number;
 }
 
 const mockHistory: HistoryData[] = [
-  { day: 'Mon', organic: 45, inorganic: 32 },
-  { day: 'Tue', organic: 52, inorganic: 38 },
-  { day: 'Wed', organic: 48, inorganic: 41 },
-  { day: 'Thu', organic: 61, inorganic: 45 },
-  { day: 'Fri', organic: 55, inorganic: 52 },
-  { day: 'Sat', organic: 67, inorganic: 58 },
-  { day: 'Sun', organic: 72, inorganic: 63 },
+  { time: '00:00', organic: 12, inorganic: 8 },
+  { time: '03:00', organic: 5, inorganic: 3 },
+  { time: '06:00', organic: 18, inorganic: 12 },
+  { time: '09:00', organic: 35, inorganic: 25 },
+  { time: '12:00', organic: 48, inorganic: 38 },
+  { time: '15:00', organic: 42, inorganic: 34 },
+  { time: '18:00', organic: 55, inorganic: 45 },
+  { time: '21:00', organic: 38, inorganic: 28 },
 ];
 
 const HistoryChart: React.FC = () => {
@@ -38,8 +39,8 @@ const HistoryChart: React.FC = () => {
     >
       <div className="flex flex-col md:flex-row md:items-center justify-between mb-8 gap-4">
         <div>
-          <h2 className="text-xl font-bold text-gray-900">Daily Trends</h2>
-          <p className="text-sm text-gray-500">Weekly waste activity summary</p>
+          <h2 className="text-xl font-bold text-gray-900">Hourly Trends</h2>
+          <p className="text-sm text-gray-500">24-hour waste activity summary (3h intervals)</p>
         </div>
 
         <div className="flex bg-gray-50 p-1 rounded-xl border border-gray-200">
@@ -86,7 +87,7 @@ const HistoryChart: React.FC = () => {
             </defs>
             <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#f3f4f6" />
             <XAxis 
-              dataKey="day" 
+              dataKey="time" 
               axisLine={false} 
               tickLine={false} 
               tick={{ fill: '#9ca3af', fontSize: 12 }}
